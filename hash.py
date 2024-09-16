@@ -11,8 +11,8 @@ def calculate_secret_hash(client_id, client_secret, username):
     return secret_hash
 
 # Substitua pelos valores corretos
-client_id = '3u9l5ieeoemksbvcjpfkpn12i8'
-client_secret = '1sjf91lg6a36l0te9ngsc8clkd7qcnelg8cc5pfrpeleoqdmrf61'
+client_id = '3et982rlhtr6p9nfcp0ugh9eik'
+client_secret = 'qeue3ukhpl8m9qgeovt3k8i2cqos6o1t4qs36r3tdhke27o1lmb'
 username = 'heitor.bittencourt.azevedo@selectgearmotors.com.br'
 
 # Gerar o SECRET_HASH
