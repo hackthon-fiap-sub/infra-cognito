@@ -83,14 +83,19 @@ resource "aws_cognito_user_pool" "user_pool" {
 
 }
 
+resource "aws_cognito_user_pool_domain" "cognito_domain" {
+  domain        = "selectgearmotors"  # Substitua pelo prefixo do seu domínio
+  user_pool_id  = aws_cognito_user_pool.user_pool["selectgearmotors"].id
+}
+
 # Criando múltiplos user pool clients
 resource "aws_cognito_user_pool_client" "user_pool_client" {
   for_each = var.user_pools
 
   name                          = each.value.client_name
   user_pool_id                  = aws_cognito_user_pool.user_pool[each.key].id
-  allowed_oauth_flows           = ["code"]
-  allowed_oauth_scopes          = ["email", "openid", "profile"]
+  allowed_oauth_flows           = ["code", "implicit", "client_credentials", "password"]
+  allowed_oauth_scopes          = ["email", "openid", "profile", "aws.cognito.signin.user.admin"]
   callback_urls                 = each.value.callback_urls
   allowed_oauth_flows_user_pool_client = true
   explicit_auth_flows           = ["ALLOW_USER_PASSWORD_AUTH","ALLOW_REFRESH_TOKEN_AUTH"]

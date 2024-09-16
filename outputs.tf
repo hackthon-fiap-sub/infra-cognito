@@ -22,3 +22,7 @@ output "client_secrets" {
   value = { for k, v in aws_cognito_user_pool_client.user_pool_client : k => v.client_secret }
   sensitive = true
 }
+
+output "cognito_client_id" {
+  value = aws_cognito_user_pool_client.user_pool_client["selectgearmotors"].id
+}
