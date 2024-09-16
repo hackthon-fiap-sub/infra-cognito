@@ -113,7 +113,13 @@ resource "aws_cognito_user_group" "user_group" {
 resource "aws_cognito_user_group" "admins" {
   name         = "admin"
   user_pool_id = aws_cognito_user_pool.user_pool["selectgearmotors"].id
-  description  = "Administradores da HealthMed"
+  description  = "Administradores da Select Gear Motors"
+}
+
+resource "aws_cognito_user_group" "users" {
+  name         = "user"
+  user_pool_id = aws_cognito_user_pool.user_pool["selectgearmotors"].id
+  description  = "Usuarios da Select Gear Motors"
 }
 
 ################################################################################
@@ -147,15 +153,15 @@ resource "aws_cognito_user_in_group" "admin_1" {
 
 resource "aws_cognito_user" "admin_2" {
   user_pool_id = aws_cognito_user_pool.user_pool["selectgearmotors"].id
-  username     = "heitor.bittencourt.azevedo@healthmed.com.br" # email 
+  username     = "heitor.bittencourt.azevedo@selectgearmotors.com.br" # email 
   password     = "Admin@123"
 
   attributes = {
     id = "70d57e1a-30b2-407d-a75c-8ff7643c8460"
     name        = "Heitor Bittencourt de Azevedo"
-    email       = "heitor.bittencourt.azevedo@healthmed.com.br"
+    email       = "heitor.bittencourt.azevedo@selectgearmotors.com.br"
     crm = "236467-MG"
-    preferred_username = "heitor.bittencourt.azevedo@healthmed.com.br"
+    preferred_username = "heitor.bittencourt.azevedo@selectgearmotors.com.br"
   }
 }
 
