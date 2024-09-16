@@ -95,7 +95,7 @@ resource "aws_cognito_user_pool_client" "user_pool_client" {
   name                          = each.value.client_name
   user_pool_id                  = aws_cognito_user_pool.user_pool[each.key].id
   #allowed_oauth_flows           = ["code", "implicit"]
-  allowed_oauth_flows           = ["password", "client_credentials"]
+  allowed_oauth_flows           = ["code", "implicit", "client_credentials"]
   #allowed_oauth_scopes          = ["email", "openid", "profile", "aws.cognito.signin.user.admin"]
   allowed_oauth_scopes          = ["email", "openid", "profile", "aws.cognito.signin.user.admin"]
   callback_urls                 = each.value.callback_urls
