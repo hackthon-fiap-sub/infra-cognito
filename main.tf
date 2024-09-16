@@ -138,7 +138,6 @@ resource "aws_cognito_user" "admin_1" {
     id = "ff05d25e-8027-473e-afd7-a0ec59dc571c"
     name        = "Anna Galindo Rodrigues"
     email       = "anna.galindo.rodrigues@selectgearmotors.com.br"
-    crm = "597670-MG"
     preferred_username = "anna.galindo.rodrigues@selectgearmotors.com.br"
   }
 }
@@ -160,7 +159,6 @@ resource "aws_cognito_user" "admin_2" {
     id = "70d57e1a-30b2-407d-a75c-8ff7643c8460"
     name        = "Heitor Bittencourt de Azevedo"
     email       = "heitor.bittencourt.azevedo@selectgearmotors.com.br"
-    crm = "236467-MG"
     preferred_username = "heitor.bittencourt.azevedo@selectgearmotors.com.br"
   }
 }
