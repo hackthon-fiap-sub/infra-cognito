@@ -13,7 +13,7 @@ variable "user_pools" {
     "selectgearmotors" = {
       name         = "selectgearmotors-user-pool"
       client_name  = "selectgearmotors-app-client"
-      callback_urls = ["https://selectgearmotors.com.br/callback"]
+      callback_urls = ["https://selectgearsmotors.auth.us-east-1.amazoncognito.com/callback"]
     }
   }
 }
@@ -94,9 +94,7 @@ resource "aws_cognito_user_pool_client" "user_pool_client" {
 
   name                          = each.value.client_name
   user_pool_id                  = aws_cognito_user_pool.user_pool[each.key].id
-  #allowed_oauth_flows           = ["code", "implicit"]
-  allowed_oauth_flows           = ["code", "implicit", "client_credentials"]
-  #allowed_oauth_scopes          = ["email", "openid", "profile", "aws.cognito.signin.user.admin"]
+  allowed_oauth_flows           = ["code", "implicit"]
   allowed_oauth_scopes          = ["email", "openid", "profile", "aws.cognito.signin.user.admin"]
   callback_urls                 = each.value.callback_urls
   allowed_oauth_flows_user_pool_client = true
